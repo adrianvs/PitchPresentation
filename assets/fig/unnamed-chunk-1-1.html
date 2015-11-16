@@ -1,0 +1,1441 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.css'>
+    
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js' type='text/javascript'></script>
+    <script src='//d3js.org/d3.v3.min.js' type='text/javascript'></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js' type='text/javascript'></script>
+    <script src='//nvd3.org/assets/lib/fisheye.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <div id = 'bild' class = 'rChart nvd3'></div>    
+    <script type='text/javascript'>
+ $(document).ready(function(){
+      drawbild()
+    });
+    function drawbild(){  
+      var opts = {
+ "dom": "bild",
+"width":    800,
+"height":    400,
+"x": "year",
+"y": "n",
+"group": "name",
+"type": "multiBarChart",
+"id": "bild" 
+},
+        data = [
+ {
+ "year":           1950,
+"sex": "F",
+"name": "Jennifer",
+"n": 2804,
+"prop":           0.16 
+},
+{
+ "year":           1950,
+"sex": "M",
+"name": "John",
+"n": 79413,
+"prop":           4.37 
+},
+{
+ "year":           1950,
+"sex": "M",
+"name": "William",
+"n": 60712,
+"prop":           3.34 
+},
+{
+ "year":           1951,
+"sex": "F",
+"name": "Jennifer",
+"n": 2975,
+"prop":           0.16 
+},
+{
+ "year":           1951,
+"sex": "M",
+"name": "John",
+"n": 81500,
+"prop":           4.27 
+},
+{
+ "year":           1951,
+"sex": "M",
+"name": "William",
+"n": 62702,
+"prop":           3.28 
+},
+{
+ "year":           1952,
+"sex": "F",
+"name": "Jennifer",
+"n": 3528,
+"prop":           0.19 
+},
+{
+ "year":           1952,
+"sex": "M",
+"name": "John",
+"n": 83071,
+"prop":           4.21 
+},
+{
+ "year":           1952,
+"sex": "M",
+"name": "William",
+"n": 62984,
+"prop":           3.19 
+},
+{
+ "year":           1953,
+"sex": "F",
+"name": "Jennifer",
+"n": 3377,
+"prop":           0.18 
+},
+{
+ "year":           1953,
+"sex": "M",
+"name": "John",
+"n": 80064,
+"prop":              4 
+},
+{
+ "year":           1953,
+"sex": "M",
+"name": "William",
+"n": 61762,
+"prop":           3.09 
+},
+{
+ "year":           1954,
+"sex": "F",
+"name": "Jennifer",
+"n": 3960,
+"prop":            0.2 
+},
+{
+ "year":           1954,
+"sex": "M",
+"name": "John",
+"n": 81124,
+"prop":           3.92 
+},
+{
+ "year":           1954,
+"sex": "M",
+"name": "William",
+"n": 61394,
+"prop":           2.97 
+},
+{
+ "year":           1955,
+"sex": "F",
+"name": "Jennifer",
+"n": 4127,
+"prop":           0.21 
+},
+{
+ "year":           1955,
+"sex": "M",
+"name": "John",
+"n": 80018,
+"prop":           3.83 
+},
+{
+ "year":           1955,
+"sex": "M",
+"name": "William",
+"n": 59915,
+"prop":           2.87 
+},
+{
+ "year":           1956,
+"sex": "F",
+"name": "Jennifer",
+"n": 4711,
+"prop":           0.23 
+},
+{
+ "year":           1956,
+"sex": "M",
+"name": "John",
+"n": 80758,
+"prop":           3.77 
+},
+{
+ "year":           1956,
+"sex": "M",
+"name": "William",
+"n": 58963,
+"prop":           2.75 
+},
+{
+ "year":           1957,
+"sex": "F",
+"name": "Jennifer",
+"n": 5482,
+"prop":           0.26 
+},
+{
+ "year":           1957,
+"sex": "M",
+"name": "John",
+"n": 78983,
+"prop":           3.61 
+},
+{
+ "year":           1957,
+"sex": "M",
+"name": "William",
+"n": 56812,
+"prop":            2.6 
+},
+{
+ "year":           1958,
+"sex": "F",
+"name": "Jennifer",
+"n": 5880,
+"prop":           0.28 
+},
+{
+ "year":           1958,
+"sex": "M",
+"name": "John",
+"n": 75973,
+"prop":           3.53 
+},
+{
+ "year":           1958,
+"sex": "M",
+"name": "William",
+"n": 54211,
+"prop":           2.52 
+},
+{
+ "year":           1959,
+"sex": "F",
+"name": "Jennifer",
+"n": 6232,
+"prop":            0.3 
+},
+{
+ "year":           1959,
+"sex": "M",
+"name": "John",
+"n": 76427,
+"prop":           3.53 
+},
+{
+ "year":           1959,
+"sex": "M",
+"name": "William",
+"n": 51378,
+"prop":           2.37 
+},
+{
+ "year":           1960,
+"sex": "F",
+"name": "Jennifer",
+"n": 7242,
+"prop":           0.35 
+},
+{
+ "year":           1960,
+"sex": "M",
+"name": "John",
+"n": 76123,
+"prop":           3.51 
+},
+{
+ "year":           1960,
+"sex": "M",
+"name": "William",
+"n": 49346,
+"prop":           2.28 
+},
+{
+ "year":           1961,
+"sex": "F",
+"name": "Jennifer",
+"n": 9264,
+"prop":           0.45 
+},
+{
+ "year":           1961,
+"sex": "M",
+"name": "John",
+"n": 79910,
+"prop":           3.71 
+},
+{
+ "year":           1961,
+"sex": "M",
+"name": "William",
+"n": 48005,
+"prop":           2.23 
+},
+{
+ "year":           1962,
+"sex": "F",
+"name": "Jennifer",
+"n": 10980,
+"prop":           0.54 
+},
+{
+ "year":           1962,
+"sex": "M",
+"name": "John",
+"n": 78447,
+"prop":           3.73 
+},
+{
+ "year":           1962,
+"sex": "M",
+"name": "William",
+"n": 44867,
+"prop":           2.13 
+},
+{
+ "year":           1963,
+"sex": "F",
+"name": "Jennifer",
+"n": 11764,
+"prop":           0.59 
+},
+{
+ "year":           1963,
+"sex": "M",
+"name": "John",
+"n": 78644,
+"prop":           3.81 
+},
+{
+ "year":           1963,
+"sex": "M",
+"name": "William",
+"n": 44487,
+"prop":           2.15 
+},
+{
+ "year":           1964,
+"sex": "F",
+"name": "Jennifer",
+"n": 12960,
+"prop":           0.66 
+},
+{
+ "year":           1964,
+"sex": "M",
+"name": "John",
+"n": 82540,
+"prop":           4.07 
+},
+{
+ "year":           1964,
+"sex": "M",
+"name": "William",
+"n": 44244,
+"prop":           2.18 
+},
+{
+ "year":           1965,
+"sex": "F",
+"name": "Jennifer",
+"n": 15206,
+"prop":           0.83 
+},
+{
+ "year":           1965,
+"sex": "M",
+"name": "John",
+"n": 71568,
+"prop":           3.78 
+},
+{
+ "year":           1965,
+"sex": "M",
+"name": "William",
+"n": 40146,
+"prop":           2.12 
+},
+{
+ "year":           1966,
+"sex": "F",
+"name": "Jennifer",
+"n": 18218,
+"prop":           1.04 
+},
+{
+ "year":           1966,
+"sex": "M",
+"name": "John",
+"n": 65054,
+"prop":           3.58 
+},
+{
+ "year":           1966,
+"sex": "M",
+"name": "William",
+"n": 38274,
+"prop":           2.11 
+},
+{
+ "year":           1967,
+"sex": "F",
+"name": "Jennifer",
+"n": 18236,
+"prop":           1.06 
+},
+{
+ "year":           1967,
+"sex": "M",
+"name": "John",
+"n": 61637,
+"prop":           3.46 
+},
+{
+ "year":           1967,
+"sex": "M",
+"name": "William",
+"n": 37627,
+"prop":           2.11 
+},
+{
+ "year":           1968,
+"sex": "F",
+"name": "Jennifer",
+"n": 26850,
+"prop":           1.57 
+},
+{
+ "year":           1968,
+"sex": "M",
+"name": "John",
+"n": 60921,
+"prop":           3.43 
+},
+{
+ "year":           1968,
+"sex": "M",
+"name": "William",
+"n": 36966,
+"prop":           2.08 
+},
+{
+ "year":           1969,
+"sex": "F",
+"name": "Jennifer",
+"n": 33705,
+"prop":           1.91 
+},
+{
+ "year":           1969,
+"sex": "M",
+"name": "John",
+"n": 58792,
+"prop":           3.21 
+},
+{
+ "year":           1969,
+"sex": "M",
+"name": "William",
+"n": 37644,
+"prop":           2.06 
+},
+{
+ "year":           1970,
+"sex": "F",
+"name": "Jennifer",
+"n": 46160,
+"prop":           2.52 
+},
+{
+ "year":           1970,
+"sex": "M",
+"name": "John",
+"n": 58541,
+"prop":           3.07 
+},
+{
+ "year":           1970,
+"sex": "M",
+"name": "William",
+"n": 38910,
+"prop":           2.04 
+},
+{
+ "year":           1971,
+"sex": "F",
+"name": "Jennifer",
+"n": 56784,
+"prop":           3.24 
+},
+{
+ "year":           1971,
+"sex": "M",
+"name": "John",
+"n": 51520,
+"prop":           2.83 
+},
+{
+ "year":           1971,
+"sex": "M",
+"name": "William",
+"n": 35444,
+"prop":           1.95 
+},
+{
+ "year":           1972,
+"sex": "F",
+"name": "Jennifer",
+"n": 63606,
+"prop":           3.94 
+},
+{
+ "year":           1972,
+"sex": "M",
+"name": "John",
+"n": 43179,
+"prop":           2.58 
+},
+{
+ "year":           1972,
+"sex": "M",
+"name": "William",
+"n": 30531,
+"prop":           1.82 
+},
+{
+ "year":           1973,
+"sex": "F",
+"name": "Jennifer",
+"n": 62452,
+"prop":           4.02 
+},
+{
+ "year":           1973,
+"sex": "M",
+"name": "John",
+"n": 39174,
+"prop":           2.43 
+},
+{
+ "year":           1973,
+"sex": "M",
+"name": "William",
+"n": 28021,
+"prop":           1.74 
+},
+{
+ "year":           1974,
+"sex": "F",
+"name": "Jennifer",
+"n": 63108,
+"prop":           4.03 
+},
+{
+ "year":           1974,
+"sex": "M",
+"name": "John",
+"n": 37654,
+"prop":           2.31 
+},
+{
+ "year":           1974,
+"sex": "M",
+"name": "William",
+"n": 26994,
+"prop":           1.66 
+},
+{
+ "year":           1975,
+"sex": "F",
+"name": "Jennifer",
+"n": 58183,
+"prop":           3.73 
+},
+{
+ "year":           1975,
+"sex": "M",
+"name": "John",
+"n": 35102,
+"prop":           2.16 
+},
+{
+ "year":           1975,
+"sex": "M",
+"name": "William",
+"n": 25581,
+"prop":           1.58 
+},
+{
+ "year":           1976,
+"sex": "F",
+"name": "Jennifer",
+"n": 59477,
+"prop":           3.78 
+},
+{
+ "year":           1976,
+"sex": "M",
+"name": "John",
+"n": 33987,
+"prop":           2.08 
+},
+{
+ "year":           1976,
+"sex": "M",
+"name": "William",
+"n": 24445,
+"prop":            1.5 
+},
+{
+ "year":           1977,
+"sex": "F",
+"name": "Jennifer",
+"n": 58961,
+"prop":           3.58 
+},
+{
+ "year":           1977,
+"sex": "M",
+"name": "John",
+"n": 34232,
+"prop":              2 
+},
+{
+ "year":           1977,
+"sex": "M",
+"name": "William",
+"n": 24776,
+"prop":           1.45 
+},
+{
+ "year":           1978,
+"sex": "F",
+"name": "Jennifer",
+"n": 56309,
+"prop":           3.43 
+},
+{
+ "year":           1978,
+"sex": "M",
+"name": "John",
+"n": 34024,
+"prop":           1.99 
+},
+{
+ "year":           1978,
+"sex": "M",
+"name": "William",
+"n": 24185,
+"prop":           1.42 
+},
+{
+ "year":           1979,
+"sex": "F",
+"name": "Jennifer",
+"n": 56716,
+"prop":           3.29 
+},
+{
+ "year":           1979,
+"sex": "M",
+"name": "John",
+"n": 35430,
+"prop":           1.98 
+},
+{
+ "year":           1979,
+"sex": "M",
+"name": "William",
+"n": 24687,
+"prop":           1.38 
+},
+{
+ "year":           1980,
+"sex": "F",
+"name": "Jennifer",
+"n": 58385,
+"prop":           3.28 
+},
+{
+ "year":           1980,
+"sex": "M",
+"name": "John",
+"n": 35263,
+"prop":            1.9 
+},
+{
+ "year":           1980,
+"sex": "M",
+"name": "William",
+"n": 25659,
+"prop":           1.38 
+},
+{
+ "year":           1981,
+"sex": "F",
+"name": "Jennifer",
+"n": 57038,
+"prop":           3.19 
+},
+{
+ "year":           1981,
+"sex": "M",
+"name": "John",
+"n": 34873,
+"prop":           1.87 
+},
+{
+ "year":           1981,
+"sex": "M",
+"name": "William",
+"n": 24788,
+"prop":           1.33 
+},
+{
+ "year":           1982,
+"sex": "F",
+"name": "Jennifer",
+"n": 57108,
+"prop":           3.15 
+},
+{
+ "year":           1982,
+"sex": "M",
+"name": "John",
+"n": 34682,
+"prop":           1.84 
+},
+{
+ "year":           1982,
+"sex": "M",
+"name": "William",
+"n": 25594,
+"prop":           1.36 
+},
+{
+ "year":           1983,
+"sex": "F",
+"name": "Jennifer",
+"n": 54336,
+"prop":           3.04 
+},
+{
+ "year":           1983,
+"sex": "M",
+"name": "John",
+"n": 33138,
+"prop":           1.78 
+},
+{
+ "year":           1983,
+"sex": "M",
+"name": "William",
+"n": 25381,
+"prop":           1.36 
+},
+{
+ "year":           1984,
+"sex": "F",
+"name": "Jennifer",
+"n": 50556,
+"prop":           2.81 
+},
+{
+ "year":           1984,
+"sex": "M",
+"name": "John",
+"n": 32588,
+"prop":           1.74 
+},
+{
+ "year":           1984,
+"sex": "M",
+"name": "William",
+"n": 24886,
+"prop":           1.33 
+},
+{
+ "year":           1985,
+"sex": "F",
+"name": "Jennifer",
+"n": 42648,
+"prop":           2.31 
+},
+{
+ "year":           1985,
+"sex": "M",
+"name": "John",
+"n": 31490,
+"prop":           1.64 
+},
+{
+ "year":           1985,
+"sex": "M",
+"name": "William",
+"n": 24607,
+"prop":           1.28 
+},
+{
+ "year":           1986,
+"sex": "F",
+"name": "Jennifer",
+"n": 36179,
+"prop":           1.96 
+},
+{
+ "year":           1986,
+"sex": "M",
+"name": "John",
+"n": 30176,
+"prop":           1.57 
+},
+{
+ "year":           1986,
+"sex": "M",
+"name": "William",
+"n": 24317,
+"prop":           1.27 
+},
+{
+ "year":           1987,
+"sex": "F",
+"name": "Jennifer",
+"n": 32691,
+"prop":           1.75 
+},
+{
+ "year":           1987,
+"sex": "M",
+"name": "John",
+"n": 29530,
+"prop":           1.52 
+},
+{
+ "year":           1987,
+"sex": "M",
+"name": "William",
+"n": 24199,
+"prop":           1.24 
+},
+{
+ "year":           1988,
+"sex": "F",
+"name": "Jennifer",
+"n": 27883,
+"prop":           1.45 
+},
+{
+ "year":           1988,
+"sex": "M",
+"name": "John",
+"n": 29387,
+"prop":           1.47 
+},
+{
+ "year":           1988,
+"sex": "M",
+"name": "William",
+"n": 24109,
+"prop":           1.21 
+},
+{
+ "year":           1989,
+"sex": "F",
+"name": "Jennifer",
+"n": 23994,
+"prop":            1.2 
+},
+{
+ "year":           1989,
+"sex": "M",
+"name": "John",
+"n": 29833,
+"prop":           1.42 
+},
+{
+ "year":           1989,
+"sex": "M",
+"name": "William",
+"n": 24674,
+"prop":           1.18 
+},
+{
+ "year":           1990,
+"sex": "F",
+"name": "Jennifer",
+"n": 22219,
+"prop":           1.08 
+},
+{
+ "year":           1990,
+"sex": "M",
+"name": "John",
+"n": 29068,
+"prop":           1.35 
+},
+{
+ "year":           1990,
+"sex": "M",
+"name": "William",
+"n": 24882,
+"prop":           1.16 
+},
+{
+ "year":           1991,
+"sex": "F",
+"name": "Jennifer",
+"n": 20672,
+"prop":           1.02 
+},
+{
+ "year":           1991,
+"sex": "M",
+"name": "John",
+"n": 27796,
+"prop":           1.31 
+},
+{
+ "year":           1991,
+"sex": "M",
+"name": "William",
+"n": 23863,
+"prop":           1.13 
+},
+{
+ "year":           1992,
+"sex": "F",
+"name": "Jennifer",
+"n": 17817,
+"prop":           0.89 
+},
+{
+ "year":           1992,
+"sex": "M",
+"name": "John",
+"n": 26234,
+"prop":           1.25 
+},
+{
+ "year":           1992,
+"sex": "M",
+"name": "William",
+"n": 23059,
+"prop":            1.1 
+},
+{
+ "year":           1993,
+"sex": "F",
+"name": "Jennifer",
+"n": 15747,
+"prop":            0.8 
+},
+{
+ "year":           1993,
+"sex": "M",
+"name": "John",
+"n": 24983,
+"prop":           1.21 
+},
+{
+ "year":           1993,
+"sex": "M",
+"name": "William",
+"n": 22207,
+"prop":           1.08 
+},
+{
+ "year":           1994,
+"sex": "F",
+"name": "Jennifer",
+"n": 13998,
+"prop":           0.72 
+},
+{
+ "year":           1994,
+"sex": "M",
+"name": "John",
+"n": 24171,
+"prop":           1.19 
+},
+{
+ "year":           1994,
+"sex": "M",
+"name": "William",
+"n": 21487,
+"prop":           1.05 
+},
+{
+ "year":           1995,
+"sex": "F",
+"name": "Jennifer",
+"n": 12684,
+"prop":           0.66 
+},
+{
+ "year":           1995,
+"sex": "M",
+"name": "John",
+"n": 23226,
+"prop":           1.16 
+},
+{
+ "year":           1995,
+"sex": "M",
+"name": "William",
+"n": 20151,
+"prop":              1 
+},
+{
+ "year":           1996,
+"sex": "F",
+"name": "Jennifer",
+"n": 11728,
+"prop":           0.61 
+},
+{
+ "year":           1996,
+"sex": "M",
+"name": "John",
+"n": 22158,
+"prop":           1.11 
+},
+{
+ "year":           1996,
+"sex": "M",
+"name": "William",
+"n": 20537,
+"prop":           1.03 
+},
+{
+ "year":           1997,
+"sex": "F",
+"name": "Jennifer",
+"n": 11837,
+"prop":           0.62 
+},
+{
+ "year":           1997,
+"sex": "M",
+"name": "John",
+"n": 21370,
+"prop":           1.07 
+},
+{
+ "year":           1997,
+"sex": "M",
+"name": "William",
+"n": 20006,
+"prop":              1 
+},
+{
+ "year":           1998,
+"sex": "F",
+"name": "Jennifer",
+"n": 10686,
+"prop":           0.55 
+},
+{
+ "year":           1998,
+"sex": "M",
+"name": "William",
+"n": 20825,
+"prop":           1.03 
+},
+{
+ "year":           1998,
+"sex": "M",
+"name": "John",
+"n": 20608,
+"prop":           1.02 
+},
+{
+ "year":           1999,
+"sex": "F",
+"name": "Jennifer",
+"n": 10609,
+"prop":           0.55 
+},
+{
+ "year":           1999,
+"sex": "M",
+"name": "William",
+"n": 20705,
+"prop":           1.02 
+},
+{
+ "year":           1999,
+"sex": "M",
+"name": "John",
+"n": 20336,
+"prop":              1 
+},
+{
+ "year":           2000,
+"sex": "F",
+"name": "Jennifer",
+"n": 9386,
+"prop":           0.47 
+},
+{
+ "year":           2000,
+"sex": "M",
+"name": "William",
+"n": 20648,
+"prop":           0.99 
+},
+{
+ "year":           2000,
+"sex": "M",
+"name": "John",
+"n": 20077,
+"prop":           0.96 
+},
+{
+ "year":           2001,
+"sex": "F",
+"name": "Jennifer",
+"n": 8920,
+"prop":           0.45 
+},
+{
+ "year":           2001,
+"sex": "M",
+"name": "William",
+"n": 20094,
+"prop":           0.97 
+},
+{
+ "year":           2001,
+"sex": "M",
+"name": "John",
+"n": 18879,
+"prop":           0.91 
+},
+{
+ "year":           2002,
+"sex": "F",
+"name": "Jennifer",
+"n": 8536,
+"prop":           0.43 
+},
+{
+ "year":           2002,
+"sex": "M",
+"name": "William",
+"n": 20115,
+"prop":           0.97 
+},
+{
+ "year":           2002,
+"sex": "M",
+"name": "John",
+"n": 17436,
+"prop":           0.84 
+},
+{
+ "year":           2003,
+"sex": "F",
+"name": "Jennifer",
+"n": 7564,
+"prop":           0.38 
+},
+{
+ "year":           2003,
+"sex": "M",
+"name": "William",
+"n": 19987,
+"prop":           0.95 
+},
+{
+ "year":           2003,
+"sex": "M",
+"name": "John",
+"n": 17217,
+"prop":           0.82 
+},
+{
+ "year":           2004,
+"sex": "F",
+"name": "Jennifer",
+"n": 6541,
+"prop":           0.32 
+},
+{
+ "year":           2004,
+"sex": "M",
+"name": "William",
+"n": 20219,
+"prop":           0.96 
+},
+{
+ "year":           2004,
+"sex": "M",
+"name": "John",
+"n": 16435,
+"prop":           0.78 
+},
+{
+ "year":           2005,
+"sex": "F",
+"name": "Jennifer",
+"n": 5831,
+"prop":           0.29 
+},
+{
+ "year":           2005,
+"sex": "M",
+"name": "William",
+"n": 19040,
+"prop":            0.9 
+},
+{
+ "year":           2005,
+"sex": "M",
+"name": "John",
+"n": 15757,
+"prop":           0.74 
+},
+{
+ "year":           2006,
+"sex": "F",
+"name": "Jennifer",
+"n": 5264,
+"prop":           0.25 
+},
+{
+ "year":           2006,
+"sex": "M",
+"name": "William",
+"n": 18938,
+"prop":           0.86 
+},
+{
+ "year":           2006,
+"sex": "M",
+"name": "John",
+"n": 15152,
+"prop":           0.69 
+},
+{
+ "year":           2007,
+"sex": "F",
+"name": "Jennifer",
+"n": 4647,
+"prop":           0.22 
+},
+{
+ "year":           2007,
+"sex": "M",
+"name": "William",
+"n": 18866,
+"prop":           0.85 
+},
+{
+ "year":           2007,
+"sex": "M",
+"name": "John",
+"n": 14417,
+"prop":           0.65 
+},
+{
+ "year":           2008,
+"sex": "F",
+"name": "Jennifer",
+"n": 3790,
+"prop":           0.18 
+},
+{
+ "year":           2008,
+"sex": "M",
+"name": "William",
+"n": 18372,
+"prop":           0.84 
+},
+{
+ "year":           2008,
+"sex": "M",
+"name": "John",
+"n": 13303,
+"prop":           0.61 
+},
+{
+ "year":           2009,
+"sex": "F",
+"name": "Jennifer",
+"n": 2986,
+"prop":           0.15 
+},
+{
+ "year":           2009,
+"sex": "M",
+"name": "William",
+"n": 17890,
+"prop":           0.85 
+},
+{
+ "year":           2009,
+"sex": "M",
+"name": "John",
+"n": 12098,
+"prop":           0.57 
+},
+{
+ "year":           2010,
+"sex": "F",
+"name": "Jennifer",
+"n": 2616,
+"prop":           0.13 
+},
+{
+ "year":           2010,
+"sex": "M",
+"name": "William",
+"n": 17024,
+"prop":           0.83 
+},
+{
+ "year":           2010,
+"sex": "M",
+"name": "John",
+"n": 11533,
+"prop":           0.56 
+},
+{
+ "year":           2011,
+"sex": "F",
+"name": "Jennifer",
+"n": 2274,
+"prop":           0.12 
+},
+{
+ "year":           2011,
+"sex": "M",
+"name": "William",
+"n": 17298,
+"prop":           0.85 
+},
+{
+ "year":           2011,
+"sex": "M",
+"name": "John",
+"n": 11016,
+"prop":           0.54 
+},
+{
+ "year":           2012,
+"sex": "F",
+"name": "Jennifer",
+"n": 1920,
+"prop":            0.1 
+},
+{
+ "year":           2012,
+"sex": "M",
+"name": "William",
+"n": 16818,
+"prop":           0.83 
+},
+{
+ "year":           2012,
+"sex": "M",
+"name": "John",
+"n": 10576,
+"prop":           0.52 
+},
+{
+ "year":           2013,
+"sex": "F",
+"name": "Jennifer",
+"n": 1682,
+"prop":           0.09 
+},
+{
+ "year":           2013,
+"sex": "M",
+"name": "William",
+"n": 16495,
+"prop":           0.82 
+},
+{
+ "year":           2013,
+"sex": "M",
+"name": "John",
+"n": 10588,
+"prop":           0.53 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        
+          
+        chart.xAxis
+  .axisLabel("Year")
+
+        
+        
+        chart.yAxis
+  .axisLabel("Count")
+  .width(    40)
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+    
+    <script></script>    
+  </body>
+</html>

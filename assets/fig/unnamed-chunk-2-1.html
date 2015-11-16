@@ -1,0 +1,289 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.css'>
+    
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js' type='text/javascript'></script>
+    <script src='//d3js.org/d3.v3.min.js' type='text/javascript'></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js' type='text/javascript'></script>
+    <script src='//nvd3.org/assets/lib/fisheye.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <div id = 'bild3' class = 'rChart nvd3'></div>    
+    <script type='text/javascript'>
+ $(document).ready(function(){
+      drawbild3()
+    });
+    function drawbild3(){  
+      var opts = {
+ "dom": "bild3",
+"width":    800,
+"height":    400,
+"x": "year",
+"y": "n",
+"group": "name",
+"type": "multiBarChart",
+"id": "bild3" 
+},
+        data = [
+ {
+ "year":           1990,
+"sex": "F",
+"name": "Jessica",
+"n": 46463,
+"prop":           2.26,
+"position": 1 
+},
+{
+ "year":           1991,
+"sex": "F",
+"name": "Ashley",
+"n": 43483,
+"prop":           2.14,
+"position": 1 
+},
+{
+ "year":           1992,
+"sex": "F",
+"name": "Ashley",
+"n": 38452,
+"prop":           1.92,
+"position": 1 
+},
+{
+ "year":           1993,
+"sex": "F",
+"name": "Jessica",
+"n": 34983,
+"prop":           1.78,
+"position": 1 
+},
+{
+ "year":           1994,
+"sex": "F",
+"name": "Jessica",
+"n": 32114,
+"prop":           1.65,
+"position": 1 
+},
+{
+ "year":           1995,
+"sex": "F",
+"name": "Jessica",
+"n": 27937,
+"prop":           1.45,
+"position": 1 
+},
+{
+ "year":           1996,
+"sex": "F",
+"name": "Emily",
+"n": 25148,
+"prop":           1.31,
+"position": 1 
+},
+{
+ "year":           1997,
+"sex": "F",
+"name": "Emily",
+"n": 25729,
+"prop":           1.35,
+"position": 1 
+},
+{
+ "year":           1998,
+"sex": "F",
+"name": "Emily",
+"n": 26177,
+"prop":           1.35,
+"position": 1 
+},
+{
+ "year":           1999,
+"sex": "F",
+"name": "Emily",
+"n": 26535,
+"prop":           1.36,
+"position": 1 
+},
+{
+ "year":           2000,
+"sex": "F",
+"name": "Emily",
+"n": 25952,
+"prop":            1.3,
+"position": 1 
+},
+{
+ "year":           2001,
+"sex": "F",
+"name": "Emily",
+"n": 25051,
+"prop":           1.27,
+"position": 1 
+},
+{
+ "year":           2002,
+"sex": "F",
+"name": "Emily",
+"n": 24456,
+"prop":           1.24,
+"position": 1 
+},
+{
+ "year":           2003,
+"sex": "F",
+"name": "Emily",
+"n": 25683,
+"prop":           1.28,
+"position": 1 
+},
+{
+ "year":           2004,
+"sex": "F",
+"name": "Emily",
+"n": 25021,
+"prop":           1.24,
+"position": 1 
+},
+{
+ "year":           2005,
+"sex": "F",
+"name": "Emily",
+"n": 23925,
+"prop":           1.18,
+"position": 1 
+},
+{
+ "year":           2006,
+"sex": "F",
+"name": "Emily",
+"n": 21385,
+"prop":           1.02,
+"position": 1 
+},
+{
+ "year":           2007,
+"sex": "F",
+"name": "Emily",
+"n": 19340,
+"prop":           0.92,
+"position": 1 
+},
+{
+ "year":           2008,
+"sex": "F",
+"name": "Emma",
+"n": 18791,
+"prop":            0.9,
+"position": 1 
+},
+{
+ "year":           2009,
+"sex": "F",
+"name": "Isabella",
+"n": 22273,
+"prop":            1.1,
+"position": 1 
+},
+{
+ "year":           2010,
+"sex": "F",
+"name": "Isabella",
+"n": 22872,
+"prop":           1.17,
+"position": 1 
+},
+{
+ "year":           2011,
+"sex": "F",
+"name": "Sophia",
+"n": 21799,
+"prop":           1.13,
+"position": 1 
+},
+{
+ "year":           2012,
+"sex": "F",
+"name": "Sophia",
+"n": 22245,
+"prop":           1.15,
+"position": 1 
+},
+{
+ "year":           2013,
+"sex": "F",
+"name": "Sophia",
+"n": 21075,
+"prop":            1.1,
+"position": 1 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        
+          
+        chart.xAxis
+  .axisLabel("Year")
+
+        
+        
+        chart.yAxis
+  .axisLabel("Frequency")
+  .width(    40)
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+    
+    <script></script>    
+  </body>
+</html>
